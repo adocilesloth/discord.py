@@ -150,7 +150,7 @@ class VoicePacket:
     def __repr__(self):
         return str(self)
 		
- class PacketDecoder:
+class PacketDecoder:
     PACKET_SIZE = 960
     SAMPLE_RATE = 48000
     SAMPLE_SIZE = 2
