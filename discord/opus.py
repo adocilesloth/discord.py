@@ -347,7 +347,7 @@ class Decoder:
         if result < 0:
             log.info('error has happened in packet_get_samples_per_frame')
             raise OpusError(result)
-         return result
+        return result
 		 
     def _decode(self, data, frame_size, decode_fec, decode_func, decode_ctype, arr_type):
         if frame_size is None:

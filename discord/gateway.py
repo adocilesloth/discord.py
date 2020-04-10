@@ -650,9 +650,9 @@ class DiscordVoiceWebSocket(websockets.client.WebSocketClientProtocol):
         elif op == self.SPEAKING:
             user_id = int(data['user_id'])
             ssrc = int(data['ssrc'])
-             if 'speaking' in data:
+            if 'speaking' in data:
                 user = self._connection._state.get_user(user_id)
-                 self._connection.decoders[ssrc].user = user
+                self._connection.decoders[ssrc].user = user
                 self._connection.decoders[ssrc].speaking_state(data['speaking'])
 
     async def initial_connection(self, data):

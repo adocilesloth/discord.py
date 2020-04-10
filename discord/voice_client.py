@@ -205,7 +205,7 @@ class PacketDecoder:
 		
     def dispatch_buffered(self):
         timestamp, packet = heapq.heappop(self.voice_buffer)
-         delta = 0
+        delta = 0
         if self.last_packet != 0:
             delta = (timestamp - self.last_packet) - self.PACKET_SIZE
 			
@@ -219,8 +219,8 @@ class PacketDecoder:
                     delta = self.started_speaking - self.stopped_speaking
                     data += b'\x00\x00' * round((delta / 2) * self.SAMPLE_SIZE)
                 self.has_had_pause = False
-             self.last_packet = timestamp
-             self.dispatch('voice_receive', self.voice_client, self.user, data)
+            self.last_packet = timestamp
+            self.dispatch('voice_receive', self.voice_client, self.user, data)
 			 
     def buffer_packet(self, rtp_packet):
         heapq.heappush(self.voice_buffer,
